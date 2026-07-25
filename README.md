@@ -2,4 +2,4 @@
 
     Redux, Store, Actions, Payload, Type, Reducers, useSelector, useDispatch
 
-Live Link: https://react-docs-s84v.vercel.app/
+Live Link: https://react-redux-rtk-docs.vercel.app/
