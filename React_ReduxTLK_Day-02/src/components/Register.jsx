@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { userRegister } from "../Redux/features/registerSlice";
 import { useDispatch } from "react-redux";
 import { nanoid } from "nanoid";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ const Register = () => {
   const formData = (data) => {
     let register = { ...data, id: nanoid() };
     dispatch(userRegister(register));
+    toast.success("Registered Successfully");
     naviagte("/home");
   };
 

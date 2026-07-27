@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { addToProduct } from "../Redux/features/createProductSlice";
 import { nanoid } from "nanoid";
+import {toast} from "react-toastify"
 
 const ProductCreateForm = () => {
   const dispatch = useDispatch();
@@ -40,6 +41,7 @@ const ProductCreateForm = () => {
     };
 
     dispatch(addToProduct(createProduct));
+    toast.success("Product Created Successfully");
     navigate("/home");
   };
 

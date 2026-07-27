@@ -3,6 +3,7 @@ import { NavLink, useNavigate } from "react-router";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../Redux/features/loginSlice";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -24,10 +25,11 @@ const Login = () => {
 
     if (!loggedInUser) {
       return;
-      reset()
+      reset();
     }
 
     dispatch(login(loggedInUser));
+    toast.success("LoggedIn Successfully");
     navigate("/home");
   };
 
