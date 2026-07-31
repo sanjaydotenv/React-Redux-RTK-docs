@@ -20,4 +20,6 @@ Live Link: https://react-redux-rtk-docs-zhq7.vercel.app/
 
     RTK, BasicAuthentication, UserHydration
 
+Live Link: https://react-redux-rtk-docs-x2bh.vercel.app/
+
 Live Link: 
