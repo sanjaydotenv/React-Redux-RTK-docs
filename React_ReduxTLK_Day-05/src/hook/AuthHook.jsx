@@ -2,7 +2,7 @@ import { useState } from "react";
 import { set, useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
-import { loginUser } from "../features/AuthSlice";
+import { loginUser, removeUser } from "../features/AuthSlice";
 
 export const useAuthHook = () => {
   const dispatch = useDispatch();
@@ -27,13 +27,13 @@ export const useAuthHook = () => {
   };
 
   const loginForm = (data) => {
-    console.log(data)
-    console.log(registerUsers)
+    console.log(data);
+    console.log(registerUsers);
     const isValidUser = registerUsers.find((user) => {
       return user.email === data.email && user.password === data.password;
     });
 
-    console.log(isValidUser)
+    console.log(isValidUser);
 
     if (!isValidUser) {
       toast.error("Invalid Credentials");
@@ -41,8 +41,12 @@ export const useAuthHook = () => {
     }
 
     dispatch(loginUser(data));
-    localStorage.setItem("loggedInUser", JSON.stringify(data))
-    toast.success("User LoggedIn")
+    localStorage.setItem("loggedInUser", JSON.stringify(data));
+    toast.success("User LoggedIn");
+  };
+
+  const logoutUser = () => {
+    dispatch(removeUser());
   };
 
   return {
@@ -51,5 +55,6 @@ export const useAuthHook = () => {
     errors,
     registerForm,
     loginForm,
+    logoutUser,
   };
 };

@@ -1,11 +1,13 @@
 import React from "react";
 import { NavLink } from "react-router";
+import { useAuthHook } from "../hook/AuthHook";
 
 const Navbar = () => {
+  const { logoutUser } = useAuthHook();
+
   return (
     <nav className="w-full bg-zinc-900 border-b border-zinc-800">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        
         {/* Logo */}
         <div className="flex items-center gap-2 cursor-pointer">
           <div className="w-10 h-10 rounded-xl bg-violet-600 flex items-center justify-center text-white font-bold text-lg">
@@ -20,7 +22,7 @@ const Navbar = () => {
         <ul className="hidden md:flex items-center gap-8">
           <li>
             <NavLink
-            to={"/"}
+              to={"/"}
               className="text-zinc-300 hover:text-violet-500 transition"
             >
               Home
@@ -28,7 +30,7 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink
-            to={"/main/shop"}
+              to={"/main/shop"}
               className="text-zinc-300 hover:text-violet-500 transition"
             >
               Shop
@@ -36,7 +38,7 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink
-            to={"/main/about"}
+              to={"/main/about"}
               className="text-zinc-300 hover:text-violet-500 transition"
             >
               About
@@ -53,7 +55,7 @@ const Navbar = () => {
             <span className="text-zinc-200 font-medium">Mayur</span>
           </div>
 
-          <button className="px-5 py-2 rounded-xl bg-violet-600 text-white font-medium hover:bg-violet-700 transition">
+          <button onClick={logoutUser} className="px-5 py-2 rounded-xl bg-violet-600 text-white font-medium hover:bg-violet-700 transition">
             Logout
           </button>
         </div>

@@ -27,4 +27,4 @@ Live Link: https://react-redux-rtk-docs-x2bh.vercel.app/
 
     RTK, OverViewTanStackQuery
 
-Live Link: 
+Live Link: https://react-redux-rtk-docs-bzej.vercel.app/
