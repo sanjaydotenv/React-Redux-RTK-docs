@@ -28,3 +28,9 @@ Live Link: https://react-redux-rtk-docs-x2bh.vercel.app/
     RTK, OverViewTanStackQuery
 
 Live Link: https://react-redux-rtk-docs-bzej.vercel.app/
+
+## Day 06
+
+    A Big Project
+
+Live Link: ---------------------------------------------

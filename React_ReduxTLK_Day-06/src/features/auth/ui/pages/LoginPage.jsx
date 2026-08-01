@@ -19,10 +19,10 @@ const LoginPage = () => {
               Email
             </label>
             <input
-              {...register("email", {
-                required: "Email is Required",
+              {...register("username", {
+                required: "Username is Required",
               })}
-              type="email"
+              type="text"
               placeholder="Enter your email"
               className="w-full border border-gray-300 rounded-lg px-4 py-3 outline-none focus:border-blue-500"
             />

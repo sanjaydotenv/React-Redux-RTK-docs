@@ -1,8 +1,18 @@
-import React from 'react'
-import { Outlet } from 'react-router'
+import React from "react";
+import { useSelector } from "react-redux";
+import { Navigate, Outlet } from "react-router";
+import LoadingScreen from "../../shared/ui/components/LoadingScreen";
 
 const PrivateProtected = () => {
-  return <Outlet />
-}
+  const { user, isLoading } = useSelector((store) => store.auth);
 
-export default PrivateProtected
+  if (isLoading) return <LoadingScreen />
+
+  if (!user) {
+    return <Navigate to={"/"} />;
+  }
+
+  return <Outlet />;
+};
+
+export default PrivateProtected;
