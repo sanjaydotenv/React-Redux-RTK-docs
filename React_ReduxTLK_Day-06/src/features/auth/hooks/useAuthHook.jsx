@@ -1,8 +1,7 @@
 import { useForm } from "react-hook-form";
-import { loginApi } from "../api/authApi";
 import { useDispatch } from "react-redux";
-import { addUser } from "../state/authSlice";
 import { Navigate } from "react-router";
+import { loginUserAction } from "../state/authAction";
 
 export const useAuth = () => {
   const dispatch = useDispatch();
@@ -20,8 +19,7 @@ export const useAuth = () => {
   };
 
   const loginForm = async (data) => {
-    const res = await loginApi(data);
-    dispatch(addUser(res));
+    dispatch(loginUserAction(data));
   };
 
   return {
