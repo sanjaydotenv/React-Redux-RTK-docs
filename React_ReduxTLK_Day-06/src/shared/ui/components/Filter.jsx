@@ -36,8 +36,9 @@ const Filter = ({
       <div className="flex gap-3">
         {/* Category */}
         <select
-        onChange={(e) => setProductCategory(e.target.value)}
+
         value={productCategory}
+        onChange={(e) => setProductCategory(e.target.value)}
           className="px-4 py-3 rounded-xl border border-gray-200 bg-white
   outline-none focus:ring-2 focus:ring-black/10"
         >

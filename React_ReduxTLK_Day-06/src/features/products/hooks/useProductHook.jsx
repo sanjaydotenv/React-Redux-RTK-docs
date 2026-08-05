@@ -42,7 +42,7 @@ export const useProductCategory = () => {
 };
 
 export const useProductByCategory = () => {
-  const [productCategory, setProductCategory] = useState(null);
+  const [productCategory, setProductCategory] = useState("");
 
   const { data, isPending } = useQuery({
     queryKey: ["getProdcutsByCategory", productCategory],
