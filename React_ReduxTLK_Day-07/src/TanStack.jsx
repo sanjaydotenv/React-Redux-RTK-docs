@@ -1,59 +1,55 @@
-import React from "react";
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import React, { useState } from "react";
+import { getProducts } from "./components/ProductApi";
+import ProductCard from "./components/ProductsCard";
 
 const TanStack = () => {
+  let limit = 10;
+  const [page, setPage] = useState(1);
 
-    
+  const { data, isPending, error, isPlaceholderData } = useQuery({
+    queryKey: ["products", page],
+    queryFn: () => {
+      return getProducts(limit, page);
+    },
+    placeholderData: keepPreviousData,
+  });
+
+  if (isPending) return "Loading..";
+  if (error) return "Error..";
+
+  console.log(data);
+
+  let pages = Math.ceil(data.total / limit);
 
   return (
     <div>
-      <div className="w-72 rounded-2xl bg-white border border-gray-200 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden">
-        {/* Product Image */}
-        <div className="h-60 bg-gray-100 flex items-center justify-center">
-          <img
-            src={product.thumbnail}
-            alt={product.title}
-            className="h-full object-contain p-4 hover:scale-105 transition-transform duration-300"
-          />
-        </div>
-
-        {/* Product Details */}
-        <div className="p-5">
-          {/* Category */}
-          <span className="inline-block text-xs bg-gray-100 text-gray-600 px-3 py-1 rounded-full mb-3 capitalize">
-            {product.category}
-          </span>
-
-          {/* Title */}
-          <h2 className="text-lg font-semibold text-gray-800 line-clamp-2">
-            {product.title}
-          </h2>
-
-          {/* Rating */}
-          <div className="flex items-center gap-1 mt-2 text-yellow-500">
-            ⭐
-            <span className="text-sm text-gray-600">{product.rating} / 5</span>
-          </div>
-
-          {/* Price & Stock */}
-          <div className="flex justify-between items-center mt-4">
-            <p className="text-2xl font-bold text-indigo-600">
-              ${product.price}
-            </p>
-
-            <span
-              className={`text-sm font-medium ${
-                product.stock > 0 ? "text-green-600" : "text-red-500"
-              }`}
-            >
-              {product.stock > 0 ? "In Stock" : "Out of Stock"}
-            </span>
-          </div>
-
-          {/* Button */}
-          <button className="w-full mt-5 bg-indigo-600 hover:bg-indigo-700 text-white py-2.5 rounded-xl transition">
-            Add to Cart
-          </button>
-        </div>
+      <div
+        style={{ opacity: isPlaceholderData ? 0.3 : 1 }}
+        className="grid grid-cols-4 gap-5"
+      >
+        {data?.products?.map((product) => {
+          return <ProductCard key={product.id} product={product} />;
+        })}
+      </div>
+      <div className="flex gap-5 items-center justify-center w-full mt-10">
+        <button
+          disabled={page === 0}
+          onClick={() => setPage(page - 1)}
+          className="bg-yellow-500 px-12 py-3 rounded-xl text-xl text-black/70 font-semibold active:scale-95"
+        >
+          Prev
+        </button>
+        <p>
+          Page {page} of {pages}
+        </p>
+        <button
+          disabled={page >= pages - 1}
+          onClick={() => setPage(page + 1)}
+          className="bg-yellow-500 px-12 py-3 rounded-xl text-xl text-black/70 font-semibold active:scale-95"
+        >
+          Next
+        </button>
       </div>
     </div>
   );
