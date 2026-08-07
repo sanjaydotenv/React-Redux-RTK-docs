@@ -31,6 +31,6 @@ Live Link: https://react-redux-rtk-docs-bzej.vercel.app/
 
 ## Day 06
 
-    A Big Project
+    Good Practice Project
 
 Live Link: ---------------------------------------------
