@@ -38,4 +38,4 @@ Live Link: https://react-redux-rtk-docs-tc72.vercel.app/
 
     Paginatio, infiniteScrolling , TanStackQuery
 
-Live Link: ---------------------------------------------
+Live Link: https://react-redux-rtk-docs-devr.vercel.app/
