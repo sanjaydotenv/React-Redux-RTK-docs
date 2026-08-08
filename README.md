@@ -32,7 +32,7 @@ Live Link: https://react-redux-rtk-docs-bzej.vercel.app/
 
     Good Practice Project , 4 Layer Architecture
 
-Live Link: ---------------------------------------------
+Live Link: https://react-redux-rtk-docs-tc72.vercel.app/
 
 ## Day 07
 
