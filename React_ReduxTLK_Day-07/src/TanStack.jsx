@@ -13,12 +13,12 @@ const TanStack = () => {
       return getProducts(limit, page);
     },
     placeholderData: keepPreviousData,
+    staleTime: 1000 * 60 * 5
   });
 
   if (isPending) return "Loading..";
   if (error) return "Error..";
 
-  console.log(data);
 
   let pages = Math.ceil(data.total / limit);
 

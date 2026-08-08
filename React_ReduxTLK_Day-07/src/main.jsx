@@ -9,12 +9,12 @@ import {
   QueryClient,
   QueryClientProvider,
 } from "@tanstack/react-query";
-import InfiniteScrolling from "./InfiniteScrolling.jsx";
+import AppRoutes from "./components/AppRoutes.jsx";
 
 const queryClient = new QueryClient();
 
 createRoot(document.getElementById("root")).render(
   <QueryClientProvider client={queryClient}>
-    <InfiniteScrolling />
+    <AppRoutes />
   </QueryClientProvider>,
 );

@@ -22,7 +22,6 @@ Live Link: https://react-redux-rtk-docs-zhq7.vercel.app/
 
 Live Link: https://react-redux-rtk-docs-x2bh.vercel.app/
 
-
 ## Day 05
 
     RTK, OverViewTanStackQuery
@@ -31,6 +30,12 @@ Live Link: https://react-redux-rtk-docs-bzej.vercel.app/
 
 ## Day 06
 
-    Good Practice Project
+    Good Practice Project , 4 Layer Architecture
+
+Live Link: ---------------------------------------------
+
+## Day 07
+
+    Paginatio, infiniteScrolling , TanStackQuery
 
 Live Link: ---------------------------------------------

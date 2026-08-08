@@ -12,8 +12,7 @@ const InfiniteScrolling = () => {
       queryFn: ({ pageParam }) => getProducts(limit, pageParam),
       initialPageParam: 0,
       getNextPageParam: (lastPage, allPage) => {
-        //   console.log("All Pages", allPage);
-        //   console.log("Last Pages", lastPage);
+
 
         let loadedData = allPage.length * limit;
         if (loadedData < lastPage.total) return loadedData;
@@ -21,11 +20,7 @@ const InfiniteScrolling = () => {
       },
     });
 
-  if (isPending) return <h1>Loading...</h1>;
-
-  let allProducts = data.pages.flatMap((val) => val.products);
-  console.log(allProducts);
-  console.log(data);
+  let allProducts = data?.pages.flatMap((val) => val.products);
 
   useEffect(() => {
     const trackScroll = () => {
@@ -47,8 +42,10 @@ const InfiniteScrolling = () => {
     };
   }, [fetchNextPage, hasNextPage, isFetchingNextPage]);
 
+  if (isPending) return <h1>Loading...</h1>;
+
   return (
-    <div className="bg-black/90 h-min-screen p-10">
+    <div className="h-min-screen p-10">
       <div className="grid grid-cols-4 gap-5">
         {allProducts.map((product) => {
           return <ProductsCard key={product.id} product={product} />;
@@ -56,7 +53,7 @@ const InfiniteScrolling = () => {
       </div>
       <div className="flex items-center justify-center w-full py-10 cursor-pointer">
         {hasNextPage ? (
-          <button className="text-white" onClick={() => fetchNextPage()}>
+          <button className="text-black/80" onClick={() => fetchNextPage()}>
             {isFetchingNextPage ? "Loading..." : "Load More"}
           </button>
         ) : (
